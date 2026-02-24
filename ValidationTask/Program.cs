@@ -1,4 +1,6 @@
-﻿namespace ValidationTask
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace ValidationTask
 {
     internal class Program
     {
@@ -30,11 +32,31 @@
         }
         static bool ValidName(string name)
         {
+            bool ValidName = name.Length > 2;
+            if (!ValidName)
+            {
+                return false;
+            }
+            else
+            {
+                foreach (char c in name)
+                {
+                    if ( )
+                }
+            }
             // name must be at least two characters and contain only letters
         }
 
         static bool validAge(int age)
         {
+            if ( age >= 11 && age <= 18 )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             //age must be between 11 and 18 inclusive
 
         }
@@ -62,6 +84,7 @@
         }
         static bool validEmail(string email)
         {
+
             // a valid email address
             // has at least 2 characters followed by an @ symbol
             // has at least 2 characters followed by a .
@@ -72,6 +95,9 @@
         }
         static string createUserName(string firstName, string lastName, int age)
         {
+
+            string username = firstName.Substring(0,2) + lastName.Substring(lastName.Length - 2) + Convert.ToString(age);
+            return username;
             // username is made up from:
             // first two characters of first name
             // last two characters of last name
