@@ -35,15 +35,23 @@ namespace ValidationTask
             bool ValidName = name.Length > 2;
             if (!ValidName)
             {
-                return false;
+                ValidName = false;
             }
             else
             {
                 foreach (char c in name)
                 {
-                    if ( )
+                    if (Convert.ToInt32(c.toUpper) >= 65 && Convert.ToInt32(c.toUpper) <= 90)
+                    {
+                        ValidName = true;
+                    }else
+                    {
+                        ValidName = false;
+                        break;
+                    }
                 }
             }
+            return ValidName;
             // name must be at least two characters and contain only letters
         }
 
@@ -84,7 +92,7 @@ namespace ValidationTask
         }
         static bool validEmail(string email)
         {
-
+            
             // a valid email address
             // has at least 2 characters followed by an @ symbol
             // has at least 2 characters followed by a .
@@ -98,10 +106,7 @@ namespace ValidationTask
 
             string username = firstName.Substring(0,2) + lastName.Substring(lastName.Length - 2) + Convert.ToString(age);
             return username;
-            // username is made up from:
-            // first two characters of first name
-            // last two characters of last name
-            // age
+        
             //e.g. Bob Smith aged 34 would have the username Both34
 
 
